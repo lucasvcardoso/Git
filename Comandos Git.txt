@@ -1,0 +1,41 @@
+Comandos Git do curso da Alura:
+
+git init #inicia um diretório local como repositório Git
+
+git add nome_do_arquivo #adiciona o arquivo passado ao rastreamento do Git
+
+git add . #adiciona todo o diretório local ao rastreamento do Git
+
+git add -i #inicia o add em modo interativo
+
+git commit -m "Mensagem" #cria um commit com a mensagem informada
+
+git commit -a -m "Mensagem" #cria um commit com a mensagem informada e adiciona todos os arquivos MODIFICADOS, sem necessidade de utilizar git add. Não adiciona ao rastreamento os arquivos novos.
+
+git status #mostra o estado atual do repositório local, com adições, remoções e modificações
+
+git log #mostra o histórico de commits no repositório
+
+git whatchanged #mostra o histórico de commits, mais quais arquivos foram alterados em cada commit
+
+git whatchanged -p #mostra o histórico de commits, mais quais arquivos foram alterados, mais as linhas que foram alteradas
+
+git blame #mostra quem alterou cada linha pela última vez
+
+git diff tag1 tag2 #mostra as diferenças entre as tags informadas
+
+git tag #mostra as tags criadas
+
+git remote #mostra os remotes associados ao repositório local
+
+git remote -add origin http://site.com/repositorio.git #adiciona o remote da URL informada, com o alias informado ("origin")
+
+git remote -v # mostra os remotes criados, com os detalhes da URL e se eles funcionam como fetch ou push
+
+git push #envia os commits locais para o remote
+
+git push origin master #envia os commits para origin (alias local do remote), da branch master local para a branch master remota
+
+git push --set-upstream origin master #faz o push e configura o remote como upstream da branch
+
+git clone http://site.com/repositorio.git #clona um repositório remoto num diretório local. Se não informado nenhum parâmetro, o diretório é criado com o nome do repositório remoto.
