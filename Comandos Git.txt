@@ -39,3 +39,9 @@ git push origin master #envia os commits para origin (alias local do remote), da
 git push --set-upstream origin master #faz o push e configura o remote como upstream da branch
 
 git clone http://site.com/repositorio.git #clona um repositório remoto num diretório local. Se não informado nenhum parâmetro, o diretório é criado com o nome do repositório remoto.
+
+git branch #mostra as branches existentes
+
+git branch nome_nova_branch #cria uma nova branch com o nome especificado
+
+git checkout nome_nova_branch #muda para a nova branch
