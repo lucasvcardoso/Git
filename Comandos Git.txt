@@ -66,4 +66,4 @@ git checkout -t origin/<nome_nova_branch_local> #cria branch local, faz o checko
 
 git pull #baixa alterações e atualizações do database do repositório
 
-git fetch origin #lista as atualizações realizadas no repostitório remoto
+git fetch origin #verifica as atualizações realizadas no repostitório remoto
