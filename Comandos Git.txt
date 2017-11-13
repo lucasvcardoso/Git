@@ -67,3 +67,8 @@ git checkout -t origin/<nome_nova_branch_local> #cria branch local, faz o checko
 git pull #baixa alterações e atualizações do database do repositório
 
 git fetch origin #Baixa os objetos e refs de outro repositorio
+
+#-------------------------------------------Anotacoes a parte do curso----------------------------
+git diff branch1..branch2 #mostra diff entre as duas branches informadas
+git diff branch1...branch2 #mostra diff entre as duas branches informadas e o ancestral em comum de ambas
+#-------------------------------------------Anotacoes a parte do curso----------------------------
