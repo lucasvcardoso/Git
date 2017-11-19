@@ -75,3 +75,5 @@ git merge master #Faz merge da branch master para a branch atual. É interessant
 #-------------------------------------------Anotacoes a parte do curso----------------------------
 
 #Para fazer merge de arquivos: ao tentar fazer pull de um arquivo com conflito, o git avisará que há um conflito, e marcará no arquivo o local do conflitos. Edita-se o arquivo manualmente, para resolver o conflito. Em seguida git add, git commit, git push.
+
+git rebase master design #Faz o rebase da branch master para a branch design. Rebase consiste em aplicar commits passados que tenham sido realizados no remote, e em seguida aplicar o seu novo commit. Mudanças novas tem que ser commitadas para poder fazer o rebase.
