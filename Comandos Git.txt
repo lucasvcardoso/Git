@@ -89,3 +89,4 @@ git rebase --abort #Aborta o rebase
 git rebase --skip #Pula os conflitos e prossegue com o rebase, descartando as alterações recentes da branch atual.
 
 git reset HEAD #Desfaz o commit indicado. Nesse caso, o commit onde está o HEAD
+
