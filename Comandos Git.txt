@@ -85,3 +85,4 @@ git rebase --continue #Continua o rebase que foi interrompido
 git rebase --abort #Aborta o rebase
 
 git rebase --skip #Pula os conflitos e prossegue com o rebase
+
