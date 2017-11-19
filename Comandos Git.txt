@@ -88,5 +88,6 @@ git rebase --abort #Aborta o rebase
 
 git rebase --skip #Pula os conflitos e prossegue com o rebase, descartando as alterações recentes da branch atual.
 
-git reset HEAD #Desfaz o commit indicado. Nesse caso, o commit onde está o HEAD
+git reset HEAD <nome_do_arquivo> #Tira o arquivo indicado de staging (pronto para commit), permitindo reverter as mudanças com checkout
 
+git reset <hash_do_commit> #Move o HEAD para o commit indicado, desfazendo os commits (não as alterações) posteriores.
