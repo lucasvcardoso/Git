@@ -64,6 +64,8 @@ git checkout -b <nome_nova_branch> #cria nova branch e ja faz o checkout da mesm
 
 git checkout -t origin/<nome_nova_branch_local> #cria branch local, faz o checkout e configura o upstream para a branch remota com o mesmo nome. Caso o repositório local já conheça a branch remota, pode-se fazer somente o checkout, que o git já cria uma nova branch local
 
+git checkout index.html #Reverte alterações não commitadas do arquivo indicado
+
 git pull #baixa alterações e atualizações do database do repositório
 
 git fetch origin #verifica as atualizações realizadas no repostitório remoto
@@ -85,3 +87,5 @@ git rebase --continue #Continua o rebase que foi interrompido
 git rebase --abort #Aborta o rebase
 
 git rebase --skip #Pula os conflitos e prossegue com o rebase, descartando as alterações recentes da branch atual.
+
+git reset HEAD #Desfaz o commit indicado. Nesse caso, o commit onde está o HEAD
