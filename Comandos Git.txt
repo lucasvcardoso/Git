@@ -71,4 +71,7 @@ git fetch origin #verifica as atualizações realizadas no repostitório remoto
 #-------------------------------------------Anotacoes a parte do curso----------------------------
 git diff branch1..branch2 #mostra diff entre as duas branches informadas
 git diff branch1...branch2 #mostra diff entre as duas branches informadas e o ancestral em comum de ambas
+git merge master #Faz merge da branch master para a branch atual. É interessante fazer o branch da master para a secundárias primeiro, para resolver os conflitos, depois fazer o merge da secundária pra master, já com os conflitos resolvido.
 #-------------------------------------------Anotacoes a parte do curso----------------------------
+
+#Para fazer merge de arquivos: ao tentar fazer pull de um arquivo com conflito, o git avisará que há um conflito, e marcará no arquivo o local do conflitos. Edita-se o arquivo manualmente, para resolver o conflito. Em seguida git add, git commit, git push.
