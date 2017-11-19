@@ -91,3 +91,47 @@ git rebase --skip #Pula os conflitos e prossegue com o rebase, descartando as al
 git reset HEAD <nome_do_arquivo> #Tira o arquivo indicado de staging (pronto para commit), permitindo reverter as mudanças com checkout
 
 git reset <hash_do_commit> #Move o HEAD para o commit indicado, desfazendo os commits (não as alterações) posteriores.
+
+git revert <hash_do_commit> #Cria um novo commit revertendo somente o commit indicado.
+
+#Caso haja alguma correção a ser feita antes da alteração que se está trabalhando atualmente, podemos guardar temporariamente as alterações com:
+
+git stash #Guarda as alterações atuais no stash.
+
+#depois, podemos fazer a correção, commitar, e listar o que está no stash com:
+
+git stash list #Lista o que está no stash
+
+#e em seguida retirar o que está no stash, para continuar trabalhando com: 
+
+git revert <hash_do_commit> #Cria um novo commit revertendo somente o commit indicado.
+
+#Caso haja alguma correção a ser feita antes da alteração que se está trabalhando atualmente, podemos guardar temporariamente as alterações com:
+
+git stash #Guarda as alterações atuais no stash.
+
+#depois, podemos fazer a correção, commitar, e listar o que está no stash com:
+
+git stash list #Lista o que está no stash
+
+#e em seguida retirar o que está no stash, para continuar trabalhando com: 
+
+git stash pop #Tira do stash o último stash (empilhado)
+
+git stash apply <id_do_stash> #Tira do stash o stash com o ID indicado. Não limpa o stash. No Windows a string com o ID tem que ser passada entre parênteses.
+
+git stash drop #Limpa o último stash da pilha
+
+git bisect start #Inicia o BISECT, ferramenta para analisar commits
+
+git bisect bad HEAD #Indica para o BISECT qual é o último commit ruim
+
+git bisect good <hash_do_commit> #Indica para o BISECT qual é o último commit bom
+
+#Após indicar qual o último commit bom, o BISECT vai mostrar o commit seguinte. Para dizer que o commit sendo mostrado não é bom utilizamos:
+
+git bisect bad #Indica para o BISECT que o commit sendo mostras não é bom.
+
+git bisect good #Indica para o BISECT que o commit sendo mostrado é bom.
+
+#Após indicar good ou bad para todos os commits sendo analisados, o BISECT indica qual foi o primeiro commit ruim, para entendermos onde começou o problema.
