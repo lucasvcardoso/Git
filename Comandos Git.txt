@@ -1,4 +1,4 @@
-Comandos Git do curso da Alura:
+#Comandos Git do curso da Alura:
 
 git init #inicia um diretório local como repositório Git
 
