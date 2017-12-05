@@ -1,4 +1,4 @@
-#Comandos Git do curso da Alura:
+Comandos Git do curso da Alura:
 
 git init #inicia um diretório local como repositório Git
 
@@ -64,11 +64,80 @@ git checkout -b <nome_nova_branch> #cria nova branch e ja faz o checkout da mesm
 
 git checkout -t origin/<nome_nova_branch_local> #cria branch local, faz o checkout e configura o upstream para a branch remota com o mesmo nome. Caso o repositório local já conheça a branch remota, pode-se fazer somente o checkout, que o git já cria uma nova branch local
 
+git checkout index.html #Reverte alterações não commitadas (No working directory) do arquivo indicado. Caso haja um arquivo com o mesmo nome de uma branch, o git considera que o nome sendo passado é de uma branch. Para indicar que o nome sendo passado é de um arquivo utilizamos a seguinte notação:
+
+git checkout -- <nome_do_arquivo> #Indica que tudo que vier depois de "-- " serão nomes de arquivos. Não confundir com a notação de opções, que é dois hífens JUNTO do nome da opção, sem espaço.
+
 git pull #baixa alterações e atualizações do database do repositório
 
-git fetch origin #Baixa os objetos e refs de outro repositorio
+git fetch origin #verifica as atualizações realizadas no repostitório remoto. Baixa os objetos e refs de outro repositorio
 
 #-------------------------------------------Anotacoes a parte do curso----------------------------
 git diff branch1..branch2 #mostra diff entre as duas branches informadas
 git diff branch1...branch2 #mostra diff entre as duas branches informadas e o ancestral em comum de ambas
+git merge master #Faz merge da branch master para a branch atual. É interessante fazer o branch da master para a secundárias primeiro, para resolver os conflitos, depois fazer o merge da secundária pra master, já com os conflitos resolvido.
 #-------------------------------------------Anotacoes a parte do curso----------------------------
+
+#Para fazer merge de arquivos: ao tentar fazer pull de um arquivo com conflito, o git avisará que há um conflito, e marcará no arquivo o local do conflitos. Edita-se o arquivo manualmente, para resolver o conflito. Em seguida git add, git commit, git push.
+
+git rebase master design #Faz o rebase da branch master para a branch design. Rebase consiste em aplicar commits passados que tenham sido realizados no remote, e em seguida aplicar o seu novo commit. Mudanças novas tem que ser commitadas para poder fazer o rebase.
+
+#Quando existem conflitos ao se fazer rebase, o rebase é pausado, o git exibe um aviso de conflito e o conflito tem que ser resolvido normalmente. Os conflitos vão sendo exibidos a medida que os novos commits vão sendo aplicados pelo git rebase. Ao terminar de resolver os conflitos, usa-se git add para adicionar a resolução ao rebase, e continua-se o rebase com:
+
+git rebase --continue #Continua o rebase que foi interrompido
+
+git rebase --abort #Aborta o rebase
+
+git rebase --skip #Pula os conflitos e prossegue com o rebase, descartando as alterações recentes da branch atual.
+
+git reset HEAD <nome_do_arquivo> #Tira o arquivo indicado de staging (pronto para commit), permitindo reverter as mudanças com checkout
+
+git reset <hash_do_commit> #Move o HEAD para o commit indicado, desfazendo os commits (não as alterações) posteriores.
+
+git reset HEAD^ #Reseta o HEAD para a penúltima posição
+
+git reset HEAD~n #Reseta o HEAD para a n-ésima posição para trás
+
+git reset #Remove as alterações do histórico local de commits, do index, mas NÃO do working directory
+
+git reset --soft #Remove as alterações do histórico local de commit mas NÃO do index.
+
+git reset --hard #Remove as alterações do histórico local de commit, do index E TAMBÉM do working directory.
+
+git revert <hash_do_commit> #Cria um novo commit revertendo somente o commit indicado.
+
+#Caso haja alguma correção a ser feita antes da alteração que se está trabalhando atualmente, podemos guardar temporariamente as alterações com:
+
+git stash #Guarda as alterações atuais, do working directory e do index, no stash
+
+#depois, podemos fazer a correção, commitar, e listar o que está no stash com:
+
+git stash list #Lista o que está no stash
+
+#e em seguida retirar o que está no stash, para continuar trabalhando com: 
+
+git stash pop #Tira do stash o último stash (empilhado)
+
+git stash apply <id_do_stash> #Tira do stash o stash com o ID indicado. Não limpa o stash. No Windows a string com o ID tem que ser passada entre parênteses.
+
+git stash apply #Aplica o stash que estiver no topo da pilha
+
+git stash drop #Limpa o stash que estiver no topo da pilha
+
+git stash drop <id_do_stash> #Limpa o stash com o ID indicado.
+
+git stash clear #Limpa a pilha toda.
+
+git bisect start #Inicia o BISECT, ferramenta para analisar commits
+
+git bisect bad HEAD #Indica para o BISECT qual é o último commit ruim
+
+git bisect good <hash_do_commit> #Indica para o BISECT qual é o último commit bom
+
+#Após indicar qual o último commit bom, o BISECT vai mostrar o commit seguinte. Para dizer que o commit sendo mostrado não é bom utilizamos:
+
+git bisect bad #Indica para o BISECT que o commit sendo mostras não é bom.
+
+git bisect good #Indica para o BISECT que o commit sendo mostrado é bom.
+
+#Após indicar good ou bad para todos os commits sendo analisados, o BISECT indica qual foi o primeiro commit ruim, para entendermos onde começou o problema.
